@@ -1,0 +1,29 @@
+<%- include('partials/header'); -%>
+    <%- include('partials/entryHeader'); -%>
+        <%- include('partials/homeEntryLinking') -%>
+        <section id="home" class="my-3 d-lg-flex justify-content-center align-items-center">
+            <div>
+                <img src="./images/logo.jpg" class="logo-image" />
+            </div>
+            <div class="p-lg-2 px-1 py-2 d-lg-flex flex-column justify-content-center align-items-center">
+                <span class="d-block display-5 text-center px-lg-5">Welcome to Shadow Monarch</span>
+                <span class="d-block text-center mt-3">Website Currently Available for phishing are?</span>
+                <ul class="list-group list-group-flush list-group-horizontal-lg">
+                    <li class="list-group-item list-group-item-success mb-1">FaceBook</li>
+                    <li class="list-group-item list-group-item-success mb-1">Gmail</li>
+                    <li class="list-group-item list-group-item-success mb-1">Microsoft</li>
+                    <li class="list-group-item list-group-item-success mb-1">Amazon</li>
+                </ul>
+
+                <div>
+                    <span class="d-block text-center my-2"><span class="fw-bold">Monarch</span><br />Are you
+                        ready?</span>
+                    <div>
+                        <a class="btn text-center px-5" href="/login">Login</a>
+                        <a class="btn text-center px-5" href="/signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<%- include('partials/footer'); -%>
