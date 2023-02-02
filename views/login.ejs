@@ -1,9 +1,18 @@
 <%- include('partials/header'); -%>
     <%- include('partials/entryHeader'); -%>
-    <%- include('partials/loginEntryLinking'); -%>
+        <%- include('partials/loginEntryLinking'); -%>
 
-        <section id="login" class="my-3 d-lg-flex justify-content-center align-items-center">
-            <h1>Login</h1>
-        </section>
+            <section id="login" class="my-3 d-lg-flex justify-content-center align-items-center flex-column">
+                <h1>Login</h1>
+                <form class="d-flex flex-column">
+                    <label>Email: </label>
+                    <input type="email" class="mb-3 form-control" name="email" />
 
-<%- include('partials/footer'); -%>
+                    <label>Password: </label>
+                    <input type="password" class="mb-3 form-control" name="password" />
+
+                    <button class="btn btn-primary">Login</button>
+                </form>
+            </section>
+
+            <%- include('partials/footer'); -%>
