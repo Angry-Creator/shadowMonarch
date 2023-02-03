@@ -3,16 +3,26 @@
         <%- include('partials/signupEntryLinking'); -%>
 
             <section id="signup" class="my-3 d-lg-flex justify-content-center align-items-center flex-column">
-                <h1>Sign Up</h1>
-                <form class="d-flex flex-column">
+                <h1 class="text-center">Sign Up</h1>
+                <form class="d-flex flex-column px-1 px-sm-3 p-lg-0" id="signupForm">
                     <label>Email: </label>
-                    <input type="email" class="mb-3 form-control" name="email" />
+                    <input type="email" class="mb-3 form-control" name="email" required/>
 
                     <label>Password: </label>
-                    <input type="password" class="mb-3 form-control" name="password" />
+                    <input type="password" class="mb-3 form-control" name="password" required />
 
-                    <button class="btn btn-primary">Login</button>
+                    <button class="btn btn-primary">Sign Up</button>
                 </form>
             </section>
+
+            <script>
+                const form = document.getElementById("signupForm");
+                form.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const email = form.email.value;
+                    const password = form.password.value;
+                    console.log(email, password);
+                });              
+            </script>
 
             <%- include('partials/footer'); -%>
