@@ -6,22 +6,58 @@
                 <h1 class="text-center">Sign Up</h1>
                 <form class="d-flex flex-column px-1 px-sm-3 p-lg-0" id="signupForm">
                     <label>Email: </label>
-                    <input type="email" class="mb-3 form-control" name="email" required/>
+                    <input type="email" class="form-control" name="email" required />
+                    <span class="d-block mb-3 text-danger" id="email-error"></span>
 
                     <label>Password: </label>
-                    <input type="password" class="mb-3 form-control" name="password" required />
+                    <input type="password" class="form-control" name="password" required />
+                    <span class="d-block mb-3 text-danger" id="password-error"></span>
 
                     <button class="btn btn-primary">Sign Up</button>
                 </form>
             </section>
 
             <script>
+                //loading the error span
+                const emailError = document.getElementById("email-error");
+                const passwordError = document.getElementById("password-error");
+
+                //Form
                 const form = document.getElementById("signupForm");
-                form.addEventListener("submit", (e) => {
+                form.addEventListener("submit", async (e) => {
                     e.preventDefault();
+
+                    //Reseting the error
+                    emailError.textContent = "";
+                    passwordError.textContent = "";
+
+                    //Getting Value
                     const email = form.email.value;
                     const password = form.password.value;
-                    console.log(email, password);
+
+                    try {
+                        const res = await fetch("/signup", {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                email,
+                                password
+                            }),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        });
+                        const data = await res.json();
+                        console.log(data);
+                        if(data.errors){
+                            emailError.textContent = data.errors.email;
+                            passwordError.textContent = data.errors.password;
+                        }
+                        if(data.user){
+                            location.assign("/admin");
+                        }
+                    } catch (err) {
+                        console.log(err)
+                    }
                 });              
             </script>
 
